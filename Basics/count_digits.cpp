@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// T.C = O(log*n)
 int countDigits(int num){
     int digitCount = 0;
     while(num!=0){

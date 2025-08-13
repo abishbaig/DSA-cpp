@@ -19,6 +19,9 @@ int reverse(int x) {
 }
 
 bool isPalindrome(int x) {
+    if(x<0){
+        return false;
+    }
     int reverseNum = reverse(x);
     if(reverseNum == x){
         return true;
@@ -29,6 +32,6 @@ bool isPalindrome(int x) {
 }
 
 int main(){
-    cout<<isPalindrome(121);
+    cout<<isPalindrome(-121);
     return 0;
 }
