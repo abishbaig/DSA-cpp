@@ -1,8 +1,9 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 // Brute Force : T.C = O(n) - S.C = O(1)
-void divisors(int num){
+void divisors1(int num){
     for(int i = 1; i<=num;i++){
         if(num%i == 0){
             cout<<i<<", ";
@@ -10,8 +11,20 @@ void divisors(int num){
     }
 }
 
+// Optimal Approach : T.C = O(sqrt(n)) - S.C = O(1)
+void divisors2(int num){
+    for(int i = 1;i<=sqrt(num);i++){
+        if(num%i==0){
+            cout<<i<<", ";
+            if(i!=(num/i)){
+                cout<<num/i<<", ";
+            }
+        }
+    }
+}
+
 int main(){
-    divisors(36);
+    divisors2(36);
     cout<<endl;
     return 0;
 }
