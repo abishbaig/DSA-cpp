@@ -10,7 +10,8 @@ int pow(int x, int y){
     return power;
 }
 
-bool armstrong(int num){
+// Brute Force Approach : T.C = O(nlogn) - S.C = O(1) 
+bool armstrong1(int num){
     /* Digits to Store Num of Digits in Number and 
     Sum to Store Sum Raised to Power of Digits on each Individual Digit*/
 
@@ -41,7 +42,20 @@ bool armstrong(int num){
     }
 }
 
+// Optimal Approach : T.C =  O(nlogn) - S.C = O(1)
+bool armstrong2(int num){
+    // Function to convert Int to String and Find Length of Digits
+    int digits = to_string(num).length();
+    int sum = 0;
+    int temp_num = num;
+    while(temp_num!=0){
+        sum += pow(temp_num%10,digits);
+        temp_num /= 10;
+    }
+    return num == sum ? true : false;
+}
+
 int main(){
-    cout<<armstrong(153)<<endl;
+    cout<<armstrong2(153)<<endl;
     return 0;
 }
