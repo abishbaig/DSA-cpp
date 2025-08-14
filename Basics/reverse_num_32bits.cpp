@@ -8,6 +8,10 @@ int reverse(int x) {
             revNum = (x % 10) + (revNum * 10);
             x /= 10;
         }
+
+        // Checking the Number in Range of 32 Bits Environment and if Not Returing 0
+        // General Formula: (2^n-1) <= num <= (2^n)-1
+        // Derived : (2^31) <= num <= (2^32)-1
         int negRange = -(pow(2, 31));
         int posRange = (pow(2, 31)) - 1;
         if (revNum >= negRange && revNum <= posRange) {
