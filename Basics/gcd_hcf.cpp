@@ -45,7 +45,9 @@ int gcd_hcf_3(int n1, int n2){
         }
     }
 }
+
 // Optimal Approach : Iterative Version : T.C = O(min(n1,n2))
+// Using Euclidean Algorithm
 int findGcd(int a, int b) {
     while(a > 0 && b > 0) {
         // If a is greater than b,
