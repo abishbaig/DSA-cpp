@@ -44,8 +44,26 @@ int missingNum2(vector<int>& arr, int range){
     }
 }
 
-// XOR Approach: T.C = O(n) - S.C = O(1) => (0^a) = a && (a^a) = 0
+// XOR Approach: T.C = O(n) - S.C = O(1) => (0^a) = a && (a^a) = 0 
+// Works for Whole Numbers
 int missingNum3(vector<int>& arr){
+    int xor1 = 0, xor2 = 0;
+    // XOR1 = 1-N
+    // XOR2 = arr[0] - arr[n-1]
+    for(int i = 0;i<arr.size();i++){
+        xor1 = xor1^(i);
+        xor2 = xor2^arr[i];
+    }
+    // Remaining Last N ^ XOR1
+    xor1 ^= arr.size();
+    // Missing Number 0^missing = missing
+    return xor1^xor2;
+}
+
+
+// XOR Approach: T.C = O(n) - S.C = O(1) => (0^a) = a && (a^a) = 0 
+// Works for Natural Numbers
+int missingNum4(vector<int>& arr){
     int xor1 = 0, xor2 = 0;
     // XOR1 = 1-N
     // XOR2 = arr[0] - arr[n-1]
@@ -65,7 +83,7 @@ int main(){
 
     // Actual Code Logic
     vector<int> arr = {1,2,4,5};
-    cout<<missingNum3(arr)<<endl;
+    cout<<missingNum4(arr)<<endl;
 
     // Recording the ending time
     auto end = chrono::high_resolution_clock::now();
